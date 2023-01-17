@@ -49,7 +49,7 @@ const app = Vue.createApp({
         this.browseLog.shift();
       }
 
-      this.browseLog.push(this.currentPlace);
+      this.browseLog.push(newValue);
     },
   },
 

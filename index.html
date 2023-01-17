@@ -66,32 +66,30 @@
 
           <!-- list -->
           <ul class="list-group overflow-auto">
-            <template v-for="item in allPlaces" :key="item.Id">
-              <li class="list-group-item">
-                <input
-                  class="form-check-input me-1"
-                  :id="item.Id"
-                  name="place-list"
-                  type="radio"
-                  :checked="currentPlace.Name === item.Name"
-                  @click="currentPlace = item"
-                />
-                <label
-                  class="form-check-label"
-                  :for="item.Id"
-                  v-html="item.Name.replace(
-                    regexp,
-                    (match) => {
-                      if (match !== '') {
-                        return `<span>${match}</span>`;
-                      }
-
-                      return match;
+            <li class="list-group-item" v-for="item in allPlaces" :key="item.Id">
+              <input
+                class="form-check-input me-1"
+                :id="item.Id"
+                name="place-list"
+                type="radio"
+                :checked="currentPlace.Name === item.Name"
+                @click="currentPlace = item"
+              />
+              <label
+                class="form-check-label"
+                :for="item.Id"
+                v-html="item.Name.replace(
+                  regexp,
+                  (match) => {
+                    if (match !== '') {
+                      return `<span>${match}</span>`;
                     }
-                  )"
-                ></label>
-              </li>
-            </template>
+
+                    return match;
+                  }
+                )"
+              ></label>
+            </li>
           </ul>
         </div>
         <div class="col-8">
